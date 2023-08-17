@@ -3,3 +3,4 @@
 .DS_Store
 *.undo
 *.bak
+plugin/packer_compiled.lua
