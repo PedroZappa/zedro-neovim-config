@@ -12,6 +12,9 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+  -- My plugins here
+  -- use 'foo1/bar1.nvim'
+  -- use 'foo2/bar2.nvim'
   use 'wbthomason/packer.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
@@ -33,6 +36,7 @@ return require('packer').startup(function(use)
     tag = '0.1.2',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  
   use {
     'Exafunction/codeium.vim',
     config = function ()
@@ -43,9 +47,18 @@ return require('packer').startup(function(use)
       vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
     end
   }
-  -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
+
+  -- use { 'sourcegraph/sg.nvim', run = 'nvim -l build/init.lua' }
+
+  use {
+  'sudormrfbin/cheatsheet.nvim',
+
+  requires = {
+    {'nvim-telescope/telescope.nvim'},
+    {'nvim-lua/popup.nvim'},
+    {'nvim-lua/plenary.nvim'},
+  }
+}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
